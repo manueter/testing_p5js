@@ -54,6 +54,52 @@ function draw()
       body.x+=10;
     }
   }
+  
+  if(mouseIsPressed)
+  {
+    if(mouseX<(width/2)-100 && mouseX>0)
+    {  
+      body.left = true;
+      body.right = false;
+      body.x-=10; 
+      
+    }
+    else if(mouseX>(width/2)+100 && mouseX<width)
+    {
+      if(this.velocityX<0) {this.velocityX*=-1;} 
+      body.left = false;
+      body.right = true;
+      body.x+=10; 
+    }
+    else
+    {
+      body.left = false;
+      body.right = false;
+      body.x = body.x;
+    }
+  
+    if(mouseY<(height/2)-(110) && mouseY>10)
+    {
+  
+      body.up = true;
+      body.down = false;
+      body.y-=10; 
+      if(body.dirY==body.y+7) body.dirY=-body.dirY;
+    }
+    else if(mouseY>(height/2)+(110) && mouseY<height-10)
+    {
+      body.up = false;
+      body.down = true;
+      body.y+=10;  
+    }
+    else
+    {
+      body.up = false;
+      body.down = false;
+      body.y=body.y; 
+    }
+  }
+  
   body.display();
 }
 
